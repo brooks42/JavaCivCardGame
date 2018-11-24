@@ -7,10 +7,6 @@ package components;
  */
 public class Card {
     
-    static enum CardType {
-        Plot, Population, Building, Wonder, Unit
-    }
-    
     private final CardInfo cardInfo;
     
     public Card(CardInfo cardInfo) {

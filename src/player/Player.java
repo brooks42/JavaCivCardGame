@@ -1,8 +1,8 @@
 package player;
 
-import com.sun.prism.impl.ResourcePool;
 import components.Card;
 import components.Deck;
+import components.ResourcePool;
 import components.plot.PlotCard;
 
 /**
@@ -10,13 +10,27 @@ import components.plot.PlotCard;
  * @author brita
  */
 public class Player {
+    
+    private final String name;
 
-    private Deck<Card> hand;
-    private Deck<PlotCard> plots;
+    private final Deck<Card> hand;
+    private final Deck<PlotCard> plots;
     
-    private ResourcePool resourcePool;
+    private final ResourcePool resourcePool;
     
-    public Player() {
-        
+    public Player(String name) {
+        this.name = name;
+        hand = new Deck<>();
+        plots = new Deck<>();
+        resourcePool = new ResourcePool();
+    }
+    
+    public ResourcePool getResourcePool() {
+        return resourcePool;
+    }
+    
+    @Override
+    public String toString() {
+        return name + " " + resourcePool.toString();
     }
 }

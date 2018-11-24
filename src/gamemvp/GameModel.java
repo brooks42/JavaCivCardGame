@@ -1,4 +1,4 @@
-package components;
+package gamemvp;
 
 import player.Player;
 
@@ -6,7 +6,7 @@ import player.Player;
  *
  * @author brita
  */
-public class Game {
+public class GameModel {
     
     static enum TurnPhase {
         GetResources, // get resources from all sources
@@ -14,8 +14,8 @@ public class Game {
         Attack, // decide on your attackers
         Defend, // defender bounces if they have a wall, choose defenders
         ResolveCombat, // defender resolves combat
-        Draw, // draw 4 cards
-        Discard, // discard 2 cards
+        Draw, // turn player draws 4 cards
+        Discard, // turn player discards 2 cards
         End // the end of the turn
     }
 
@@ -28,11 +28,18 @@ public class Game {
     // the current turn number. Starts at 1
     private int turnNumber;
     
-    public Game() {
-        player1 = new Player();
-        player2 = new Player();
+    public GameModel() {
+        player1 = new Player("Player1");
+        player2 = new Player("Player2");
         turnNumber = 1;
     }
     
+    public Player getPlayer1() {
+        return player1;
+    }
+    
+    public Player getPlayer2() {
+        return player2;
+    }
     
 }

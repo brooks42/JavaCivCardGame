@@ -6,14 +6,13 @@ import com.jme3.math.ColorRGBA;
 import com.jme3.renderer.RenderManager;
 import com.jme3.scene.Geometry;
 import com.jme3.scene.shape.Box;
-import components.Card;
-import components.CardFactory;
-import components.CardInfo;
-import components.Game;
-import java.io.InputStreamReader;
-import java.lang.reflect.InvocationTargetException;
+import console.TextBasedGamePresenter;
+import console.TextBasedGameDisplay;
+import console.TextBasedInputLayer;
+import gamemvp.GameModel;
+import gamemvp.GamePresenter;
+import gamemvp.GameView;
 import java.util.Arrays;
-import java.util.Scanner;
 
 /**
  * This is the Main Class of your Game. You should only do initialization here.
@@ -21,41 +20,33 @@ import java.util.Scanner;
  * @author normenhansen
  */
 public class Main extends SimpleApplication {
+    
+    private GameView gameView;
+    
+    private GamePresenter gamePresenter;
+    
+    private GameModel game;
+    
+    private TextBasedInputLayer inputLayer;
 
     public static void main(String[] args) {
         
         System.out.println("Program parameters: " + Arrays.toString(args));
         
-        Game game = new Game();
-        
-        Scanner scanner = new Scanner(new InputStreamReader(System.in));
-        while (scanner.hasNext()) {
-            String option = scanner.next();
-            
-            System.out.println("echo: " + option);
-            
-            if ("exit".equals(option)) {
-                break;
-            }
-            
-            if ("card".equals(option)) {
-                try {
-                    CardInfo info = new CardInfo();
-
-                    CardFactory<Card> cardFactory = new CardFactory<>(Card.class);
-                    cardFactory.setCardInfo(info);
-                    cardFactory.create();
-                    
-                    System.out.println("built a card");
-                } catch (IllegalAccessException | InstantiationException | NoSuchMethodException | InvocationTargetException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
+        Main main = new Main();
+        main.startNewGame();
         
         // TODO: uncomment the lines below when it's time to make the game itself
-        //        Main app = new Main();
-        //        app.start();
+//        Main app = new Main();
+//        app.start();
+    }
+    
+    private void startNewGame() {
+        game = new GameModel();
+        gameView = new TextBasedGameDisplay(game, System.out);
+        gamePresenter = new TextBasedGamePresenter(game, gameView);
+        inputLayer = new TextBasedInputLayer((TextBasedGamePresenter)gamePresenter);
+        inputLayer.hookToInputStream(System.in); // this will loop forever and act as our game loop clock
     }
 
     @Override

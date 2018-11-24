@@ -1,0 +1,20 @@
+{
+    "Coast": {
+        "yield":["commerce", "commerce"]
+    },
+    "River": {
+        "yield":["food", "commerce"]
+    },
+    "Hills": {
+        "yield":["food", "production"]
+    },
+    "Mountains": {
+        "yield":["production", "production"]
+    },
+    "Forest": {
+        "yield":["production", "commerce"]
+    },
+    "Grassland": {
+        "yield":["food", "food"]
+    }
+}
