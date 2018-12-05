@@ -1,39 +1,34 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package gamemvp;
+
+import components.Deck;
+import player.Player;
 
 /**
  *
- * @author brita
+ * @author brooks42
  */
-public class GameView implements GameDisplay {
-    
-    protected final GameModel game;
-    
-    public GameView(GameModel game) {
-        this.game = game;
-    }
+public interface GameView {
 
-    @Override
-    public void showTable() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    void describePlayer(Player player);
 
-    @Override
-    public void showHand() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    void describePlayerHand(Player player);
 
-    @Override
-    public void showPlayerOne() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    @Override
-    public void showPlayerTwo() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    void describePlayerPlots(Player player);
 
-    @Override
-    public void showResourcePool() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    void describePlayerTechs(Player player);
+
+    void describePlayerResourcePool(Player player);
+
+    void describeTable(GameModel game);
+
+    void describeActiveTechCards(Deck techCards);
+
+    void describeActivePlotCards(Deck plotCards);
+
+    void describeDiscardPile(Deck discardPile);
 }

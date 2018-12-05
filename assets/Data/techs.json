@@ -1,0 +1,80 @@
+{
+    "cards": {
+        "Monotheism": {
+            "name":"Monotheism",
+            "cost":12,
+            "effect":"Double effect of Temples."
+        },
+        "Engineering": {
+            "name":"Engineering",
+            "cost":20,
+            "effect":"All Plots can hold 2 buildings."
+        },
+        "Code of Laws": {
+            "name":"Code of Laws",
+            "cost":20,
+            "effect":"Steal 3 resources from any 1 player."
+        },
+        "Mining": {
+            "name":"Mining",
+            "cost":12,
+            "effect":"One-time bonus of 1 Prod per plot."
+        },
+        "Literature": {
+            "name":"Literature",
+            "cost":12,
+            "effect":"Provides 3 Culture."
+        },
+        "Agriculture": {
+            "name":"Agriculture",
+            "cost":12,
+            "effect":"+1 Food per turn from each Granary."
+        },
+        "Astronomy": {
+            "name":"Astronomy",
+            "cost":24,
+            "effect":"Draw 1 extra card per turn."
+        },
+        "The Wheel": {
+            "name":"The Wheel",
+            "cost":14,
+            "effect":"Draw 2 free cards."
+        },
+        "Sailing": {
+            "name":"Sailing",
+            "cost":16,
+            "effect":"Can trade 2 resources of one type for 1 of another."
+        },
+        "Pottery": {
+            "name":"Pottery",
+            "cost":16,
+            "effect":"Can spend 3 resources to draw 1 card each turn."
+        },
+        "Mathematics": {
+            "name":"Mathematics",
+            "cost":14,
+            "effect":"Catapults can defend against all units."
+        },
+        "Iron Working": {
+            "name":"Iron Working",
+            "cost":14,
+            "effect":"+1 Prod per turn from each Forge."
+        },
+        "Writing": {
+            "name":"Writing",
+            "cost":14,
+            "effect":"Steal 1 random card from another player's hand."
+        },
+        "Masonry": {
+            "name":"Masonry",
+            "cost":16,
+            "effect":"-1 Building costs."
+        },
+        "Currency": {
+            "name":"Currency",
+            "cost":16,
+            "effect":"+1 Commerce per turn from each Market."
+        }
+    }
+}
+   

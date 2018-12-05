@@ -11,7 +11,7 @@ import console.TextBasedGameDisplay;
 import console.TextBasedInputLayer;
 import gamemvp.GameModel;
 import gamemvp.GamePresenter;
-import gamemvp.GameView;
+import gamemvp.BaseGameDisplay;
 import java.util.Arrays;
 
 /**
@@ -21,7 +21,7 @@ import java.util.Arrays;
  */
 public class Main extends SimpleApplication {
     
-    private GameView gameView;
+    private BaseGameDisplay gameView;
     
     private GamePresenter gamePresenter;
     
@@ -43,8 +43,9 @@ public class Main extends SimpleApplication {
     
     private void startNewGame() {
         game = new GameModel();
-        gameView = new TextBasedGameDisplay(game, System.out);
-        gamePresenter = new TextBasedGamePresenter(game, gameView);
+        gameView = new TextBasedGameDisplay(System.out);
+        gamePresenter = new TextBasedGamePresenter(game);
+        gamePresenter.bindView(gameView);
         inputLayer = new TextBasedInputLayer((TextBasedGamePresenter)gamePresenter);
         inputLayer.hookToInputStream(System.in); // this will loop forever and act as our game loop clock
     }

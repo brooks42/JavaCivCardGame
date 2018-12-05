@@ -1,45 +1,77 @@
 package console;
 
+import components.Deck;
 import gamemvp.GameModel;
-import gamemvp.GameView;
+import gamemvp.BaseGameDisplay;
 import java.io.PrintStream;
+import player.Player;
 
 /**
  *
- * @author brita
+ * @author brooks42
  */
-public class TextBasedGameDisplay extends GameView {
+public class TextBasedGameDisplay extends BaseGameDisplay {
 
     private final PrintStream out;
     
-    public TextBasedGameDisplay(GameModel game, PrintStream out) {
-        super(game);
+    public TextBasedGameDisplay(PrintStream out) {
         this.out = out;
     }
     
-    @Override
-    public void showTable() {
-        showPlayerOne();
-        showPlayerTwo();
-    }
-
-    @Override
-    public void showHand() {
-//        out.println(this.game.getPlayer1().toString());
-    }
-
-    @Override
-    public void showPlayerOne() {
-        out.println(this.game.getPlayer1().toString());
+    public void showGameSetUp() {
+        this.out.println("Game ready");
     }
     
     @Override
-    public void showPlayerTwo() {
-        out.println(this.game.getPlayer2().toString());        
+    public void describePlayer(Player player) {
+        this.out.println(player.toString());
     }
 
     @Override
-    public void showResourcePool() {
-        out.println(this.game.getPlayer1().getResourcePool().toString());
+    public void describePlayerHand(Player player) {
+        this.out.println(player.getHand().toString());
+    }
+
+    @Override
+    public void describePlayerPlots(Player player) {
+        this.out.println(player.getPlots().toString());
+    }
+
+    @Override
+    public void describePlayerTechs(Player player) {
+        this.out.println(player.getTechs().toString());
+    }
+
+    @Override
+    public void describePlayerResourcePool(Player player) {
+        this.out.println(player.getResourcePool().toString());
+    }
+
+    @Override
+    public void describeTable(GameModel game) {
+        StringBuilder builder = new StringBuilder();
+        builder.append("Table:").append(System.lineSeparator());
+        builder.append(game.getPlayer2().getName()).append(System.lineSeparator());
+        builder.append(game.getPlayer2().getTableString()).append(System.lineSeparator());
+        builder.append(game.getAvailablePlotsDeck()).append(System.lineSeparator());
+        builder.append(game.getAvailableTechsDeck()).append(System.lineSeparator());
+        builder.append(game.getPlayer1().getName()).append(System.lineSeparator());
+        builder.append(game.getPlayer1().getTableString()).append(System.lineSeparator());
+        this.out.println(builder.toString());
+    }
+
+    @Override
+    public void describeActiveTechCards(Deck techCards) {
+        this.out.println(techCards.toString());
+    }
+
+    @Override
+    public void describeActivePlotCards(Deck plotCards) {
+        this.out.println(plotCards.toString());
+    }
+
+    @Override
+    public void describeDiscardPile(Deck discardPile) {
+        this.out.println(discardPile.toString());
     }
 }

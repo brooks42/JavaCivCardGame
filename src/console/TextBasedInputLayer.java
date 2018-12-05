@@ -27,12 +27,32 @@ public class TextBasedInputLayer {
             
             System.out.println("echo: " + option);
             
+            if ("start".equals(option)) {
+                textBasedGamePresenter.startGame();
+            }
+            
             if ("exit".equals(option)) {
                 break;
             }
             
             if ("look".equals(option)) {
-                
+                textBasedGamePresenter.describePlayer1();
+            }
+            
+            if ("table".equals(option)) {
+                textBasedGamePresenter.describeTable();
+            }
+            
+            if ("plots".equals(option)) {
+                textBasedGamePresenter.describeActivePlotCards();
+            }
+            
+            if ("techs".equals(option)) {
+                textBasedGamePresenter.describeActiveTechCards();
+            }
+            
+            if ("hand".equals(option)) {
+                textBasedGamePresenter.describePlayerHand();
             }
         }
     }

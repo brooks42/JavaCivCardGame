@@ -2,16 +2,19 @@ package gamemvp;
 
 /**
  *
- * @author brita
+ * @author brooks42
  */
 public class GamePresenter {
 
-    private final GameModel game;
+    protected final GameModel game;
     
-    private final GameView view;
+    protected BaseGameDisplay view;
     
-    public GamePresenter(GameModel game, GameView view) {
+    public GamePresenter(GameModel game) {
         this.game = game;
+    }
+    
+    public void bindView(BaseGameDisplay view) {
         this.view = view;
     }
 }

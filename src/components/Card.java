@@ -7,7 +7,7 @@ package components;
  */
 public class Card {
     
-    private final CardInfo cardInfo;
+    protected final CardInfo cardInfo;
     
     public Card(CardInfo cardInfo) {
         this.cardInfo = cardInfo;

@@ -1,5 +1,8 @@
 package components;
 
+import com.google.gson.annotations.SerializedName;
+import java.util.ArrayList;
+
 /**
  * Describes a card, its name and effect etc
  *
@@ -7,6 +10,10 @@ package components;
  */
 public class CardInfo {
 
-    private String cardName;
+    @SerializedName("name")
+    protected String cardName;
     
+    public String getCardName() {
+        return cardName;
+    }
 }

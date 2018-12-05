@@ -1,20 +1,36 @@
 {
-    "Coast": {
-        "yield":["commerce", "commerce"]
+    "cards": {
+        "Coast": {
+            "name":"Coast",
+            "yield":["commerce", "commerce"]
+        },
+        "River": {
+            "name":"River",
+            "yield":["food", "commerce"]
+        },
+        "Hills": {
+            "name":"Hills",
+            "yield":["food", "production"]
+        },
+        "Mountains": {
+            "name":"Mountains",
+            "yield":["production", "production"]
+        },
+        "Forest": {
+            "name":"Forest",
+            "yield":["production", "commerce"]
+        },
+        "Grassland": {
+            "name":"Grassland",
+            "yield":["food", "food"]
+        } 
     },
-    "River": {
-        "yield":["food", "commerce"]
-    },
-    "Hills": {
-        "yield":["food", "production"]
-    },
-    "Mountains": {
-        "yield":["production", "production"]
-    },
-    "Forest": {
-        "yield":["production", "commerce"]
-    },
-    "Grassland": {
-        "yield":["food", "food"]
+    "counts": {
+        "Coast":5,
+        "River":5,
+        "Hills":5,
+        "Mountains":5,
+        "Forest":5,
+        "Grassland":5
     }
 }
